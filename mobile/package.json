@@ -1,12 +1,15 @@
 {
   "name": "we-praise",
   "version": "0.0.1",
+  "description": "A API for We Praise project",
+  "repository": "https://github.com/rodrigozan/we-praise.git",
+  "homepage": "https://github.com/rodrigozan/we-praise",
   "author": {
     "name": "Rodrigo Zandonadi",
     "email": "rodrigo.zandonadi.dev@gmail.com",
-    "url": ""
+    "url": "https://github.com/rodrigozan/"
   },
-  "homepage": "https://ionicframework.com/",
+  
   "scripts": {
     "ng": "ng",
     "start": "ionic serve",
@@ -15,7 +18,8 @@
     "test": "ng test",
     "lint": "ng lint"
   },
-  "private": true,
+  "license": "MIT",
+  "private": false,
   "dependencies": {
     "@angular/animations": "^18.0.0",
     "@angular/common": "^18.0.0",
@@ -63,6 +67,5 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.4.0"
-  },
-  "description": "An Ionic project"
+  }
 }

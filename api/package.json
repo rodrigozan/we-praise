@@ -1,0 +1,15 @@
+{
+  "name": "we-praise",
+  "version": "1.0.0",
+  "description": "A API for We Praise project",
+  "main": "server.js",
+  "repository": "https://github.com/rodrigozan/we-praise.git",
+  "homepage": "https://github.com/rodrigozan/we-praise",
+  "author": {
+    "name": "Rodrigo Zandonadi",
+    "email": "rodrigo.zandonadi.dev@gmail.com",
+    "url": ""
+  },
+  "license": "MIT",
+  "private": false
+}
