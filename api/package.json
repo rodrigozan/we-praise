@@ -13,6 +13,7 @@
   "scripts": {
     "libs": "yarn add express cors mongoose bcryptjs jsonwebtoken dotenv",
     "libs:dev": "yarn add -D typescript @types/node ts-node-dev @types/express @types/cors @types/mongoose @types/bcryptjs @types/jsonwebtoken @types/dotenv",
+    "typescript": "npx tsc --init",
     "start:dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "npx tsc"
   },
