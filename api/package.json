@@ -11,6 +11,7 @@
     "url": ""
   },
   "scripts": {
+    "structure": "mkdir src/controllers && mkdir src/models && mkdir src/services && mkdir src/middlewares",
     "libs": "yarn add express cors mongoose bcryptjs jsonwebtoken dotenv",
     "libs:dev": "yarn add -D typescript @types/node ts-node-dev @types/express @types/cors @types/mongoose @types/bcryptjs @types/jsonwebtoken @types/dotenv",
     "typescript": "npx tsc --init",
