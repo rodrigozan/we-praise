@@ -2,13 +2,19 @@
   "name": "we-praise",
   "version": "1.0.0",
   "description": "A API for We Praise project",
-  "main": "server.js",
+  "main": "src/server.ts",
   "repository": "https://github.com/rodrigozan/we-praise.git",
   "homepage": "https://github.com/rodrigozan/we-praise",
   "author": {
     "name": "Rodrigo Zandonadi",
     "email": "rodrigo.zandonadi.dev@gmail.com",
     "url": ""
+  },
+  "scripts": {
+    "libs": "yarn add express cors mongoose bcryptjs jsonwebtoken dotenv",
+    "libs:dev": "yarn add -D typescript @types/node ts-node-dev @types/express @types/cors @types/mongoose @types/bcryptjs @types/jsonwebtoken @types/dotenv",
+    "start:dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "npx tsc"
   },
   "license": "MIT",
   "private": false
