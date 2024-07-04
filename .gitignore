@@ -15,4 +15,4 @@ coverage/
 .vssettings/
 
 # Ignorar arquivos de configuração específicos de cada projeto
-{mobile,web,api}/.env
+*/.env
