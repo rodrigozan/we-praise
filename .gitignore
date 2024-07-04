@@ -1,5 +1,5 @@
 # Ignorar pastas de pacotes Node.js
-{mobile,web,api}/node_modules/
+*/node_modules/
 
 
 # Ignorar arquivos gerados pelo processo de desenvolvimento
