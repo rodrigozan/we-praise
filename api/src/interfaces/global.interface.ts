@@ -20,6 +20,7 @@ interface IPost extends Document {
     type: string;
     visibility: string;
     files: string[];
+    comments: Types.ObjectId[];
 }
 
 interface ISchedule extends Document {
@@ -28,6 +29,7 @@ interface ISchedule extends Document {
     service: string;
     members: Types.ObjectId[];
     songs: Types.ObjectId[];
+    comments: Types.ObjectId[];
 }
 
 interface IMessage extends Document {
@@ -36,6 +38,7 @@ interface IMessage extends Document {
     author: Types.ObjectId;
     sentAt: Date;
     recipients: Types.ObjectId[];
+    comments: Types.ObjectId[];
 }
 
 interface IComment extends Document {
@@ -43,6 +46,7 @@ interface IComment extends Document {
     author: Types.ObjectId;
     createdAt: Date;
     updatedAt: Date;
+    parent: Types.ObjectId;
   }
   
 
