@@ -1,22 +1,31 @@
-import { Router, Request, Response } from 'express';
+import { Router } from 'express'
 
-class Route {
-    public router: Router;
+import UserController from './controllers/UserController'
+import AuthController from './controllers/AuthController'
+import ChangePasswordController from './controllers/ChangePasswordController'
 
-    constructor() {
-        this.router = Router();
-        this.routes();
-    }
+import TestController from './controllers/TestController'
 
-    public getRoot(req: Request, res: Response): void {
-        res.json({ status: 200, message: 'Entrou na rota root' });
-    }
+import { authMiddleware } from './middlewares/AuthMiddleware'
 
-    private routes(): void {
-        this.router.get('/', this.getRoot);
-    }
-}
+const router = Router()
 
-const route = new Route();
+const userController = UserController
+const authController = AuthController
+const changePassCtrl = ChangePasswordController
 
-export default route.router;
+const testCtrl = TestController
+
+router.post('/users', userController.create)
+router.get('/users', userController.get)
+router.get('/users/:id', userController.getUser) 
+router.put('/users/:id', authMiddleware, userController.update)
+router.delete('/users/:id', authMiddleware, userController.delete)
+
+router.post('/auth', authController.login)
+
+router.post('/change-password/:id', changePassCtrl.change)
+
+router.post('/test-users', authMiddleware, testCtrl.postUsers)
+
+export default router

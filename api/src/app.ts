@@ -1,8 +1,9 @@
-
 import express from "express";
-import dotenv from "dotenv";
+import * as dotenv from 'dotenv';
 
-import router from "../router";
+import { Connection } from './database/Connection';
+
+import router from "./router";
 
 dotenv.config()
 
@@ -12,6 +13,7 @@ export class App {
     constructor() {
         this.server = express();
         this.middleware();
+        this.connection();
         this.routes();
     }
 
@@ -21,5 +23,9 @@ export class App {
 
     private routes() {
         this.server.use(router);
+    }
+
+    private async connection() {
+        await Connection.connect();
     }
 }
