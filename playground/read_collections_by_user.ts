@@ -8,7 +8,7 @@ async function run() {
         await client.connect();
         console.log('Conectado ao MongoDB');
 
-        const db = client.db('we_praise');
+        const db = client.db('wepraise');
 
         async function getAllByUser(userId: string) {
             const userObjectId = new ObjectId(userId);
