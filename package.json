@@ -15,7 +15,8 @@
   },
   "scripts": {
     "create_cl": "npx ts-node playground/create_collections.ts",
-    "read_cl": "npx ts-node playground/read_collections_by_user.ts"
+    "read_cl": "npx ts-node playground/read_collections_by_user.ts",
+    "create_logs": "npx ts-node playground/logs.ts"
   },
   "dependencies": {
     "@types/mongodb": "^4.0.7",
