@@ -38,4 +38,12 @@ interface IMessage extends Document {
     recipients: Types.ObjectId[];
 }
 
-export { IUser, IPost, ISchedule, IMessage }
+interface IComment extends Document {
+    content: string;
+    author: Types.ObjectId;
+    createdAt: Date;
+    updatedAt: Date;
+  }
+  
+
+export { IUser, IPost, ISchedule, IMessage, IComment }
