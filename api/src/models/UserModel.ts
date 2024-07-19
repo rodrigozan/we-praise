@@ -1,7 +1,9 @@
-import mongoose from 'mongoose';
+import { Schema, model } from 'mongoose';
 import bcrypt from 'bcryptjs';
 
-const userSchema = new mongoose.Schema({
+import { IUser } from 'interfaces/global.interface';
+
+const userSchema = new Schema<IUser>({
     name: {
         type: String,
         required: true
@@ -14,6 +16,19 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    celular: {
+        type: Number,
+        required: true
+    },
+    instruments: {
+        type: [String],
+        required: true
+    },
+    role: {
+        type: String,
+        enum: ['user', 'admin', 'moderator', 'editor'], 
+        default: 'user'
     }
 });
 
@@ -22,4 +37,4 @@ userSchema.methods.checkPassword = async function (password: string) {
 };
 
 
-export const UserModel = mongoose.model('User', userSchema);
+export const UserModel = model('User', userSchema);
