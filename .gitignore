@@ -1,19 +1,18 @@
-# Ignorar pastas de pacotes Node.js
 */node_modules/
 **/node_modules/
 
-
-# Ignorar arquivos gerados pelo processo de desenvolvimento
 *.log
 *.tmp
 npm-debug.log
 yarn-error.log
 coverage/
 
-# Ignorar arquivos de configuração IDE
 .idea/
 .vscode/
 .vssettings/
 
-# Ignorar arquivos de configuração específicos de cada projeto
+*.idea/
+*.vscode/
+*.vssettings/
+
 */.env
