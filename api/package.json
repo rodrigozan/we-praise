@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "description": "A API to We Praise project",
   "author": {
     "name": "Rodrigo Zan",
     "email": "rodrigo.zandonadi.dev@gmail.com",
