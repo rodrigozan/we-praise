@@ -1,6 +1,6 @@
 import { IUser } from '../interfaces/global.interface';
 
-class validation {
+class ValidationHelper {
     public validatePostAuthor(user: IUser) {
         if (user.role === 'user') {
             throw new Error('User does not have permission to publish posts.');
@@ -9,6 +9,6 @@ class validation {
     }
 }
 
-export default new validation()
+export default new ValidationHelper()
 
 

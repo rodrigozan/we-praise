@@ -28,7 +28,7 @@ class UserController {
         }
     }
 
-    public async getUser(req: Request, res: Response) {
+    public async getOne(req: Request, res: Response) {
         try {
             const objectId = new Types.ObjectId(req.params.id)
             const user = await service.findUserById(objectId, '');
