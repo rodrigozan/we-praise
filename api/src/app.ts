@@ -22,7 +22,7 @@ export class App {
     }
 
     private routes() {
-        this.server.use(router);
+        this.server.use('/api', router);
     }
 
     private async connection() {
