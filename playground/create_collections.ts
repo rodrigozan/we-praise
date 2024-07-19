@@ -8,9 +8,8 @@ async function run() {
         await client.connect();
         console.log('Conectado ao MongoDB');
 
-        const db = client.db('we_praise');
+        const db = client.db('wepraise');
 
-        // Collection: users
         const usersCollection = db.collection('users');
         await usersCollection.insertMany([
             {
@@ -48,7 +47,6 @@ async function run() {
             },
         ]);
 
-        // Collection: posts
         const postsCollection = db.collection('posts');
         await postsCollection.insertMany([
             {
@@ -71,7 +69,6 @@ async function run() {
             },
         ]);
 
-        // Collection: schedules
         const schedulesCollection = db.collection('schedules');
         await schedulesCollection.insertMany([
             {
@@ -90,7 +87,6 @@ async function run() {
             },
         ]);
 
-        // Collection: messages
         const messagesCollection = db.collection('messages');
         await messagesCollection.insertMany([
             {
