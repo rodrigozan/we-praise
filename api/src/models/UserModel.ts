@@ -9,7 +9,9 @@ const userSchema = new Schema<IUser>({
     password: { type: String, required: true },
     celular: { type: Number, required: true },
     instruments: { type: [String], required: true },
-    role: { type: String, enum: ['user', 'admin', 'moderator', 'editor'], default: 'user' }
+    subteam: { type: [String], enum: ['band', 'vocals', 'audio_tech', 'editor'] },
+    active: { type: Boolean, required: true, default: false},
+    role: { type: String, enum: ['member', 'minister','admin', 'moderator', 'editor'], default: 'member' }
 });
 
 userSchema.methods.checkPassword = async function (password: string) {
