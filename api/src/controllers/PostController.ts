@@ -3,11 +3,9 @@ import { Types } from 'mongoose';
 
 import { PostService } from "../services/PostService";
 
-import ValidationHelper from '../helpers/ValidationPostHelper';
+import { postValidationHelper } from '../helpers/validationHelpers';
 
 const service = PostService
-
-const validate = ValidationHelper
 
 class PostController {
   public async post(req: Request, res: Response) {
@@ -16,7 +14,7 @@ class PostController {
       const body = req.body
       const userId = new Types.ObjectId(req.params.userId)
 
-      validate.validateUser(userId, body, 'create')
+      await postValidationHelper.validateEntity(userId, body, 'create', 'role', 'author');
       body.author = userId
 
       const post = await service.create(body)
@@ -68,7 +66,7 @@ class PostController {
       const postId = new Types.ObjectId(req.params.id)
       const userId = new Types.ObjectId(req.params.userId)
 
-      validate.validateUser(userId, body, 'update')
+      await postValidationHelper.validateEntity(userId, body, 'update', 'role', 'author');
 
       const post = await service.update(postId, body)
 
@@ -88,7 +86,7 @@ class PostController {
       const postId = new Types.ObjectId(req.params.id)
       const userId = new Types.ObjectId(req.params.userId)
 
-      validate.validateUser(userId, body, 'update')
+      await postValidationHelper.validateEntity(userId, body, 'delete', 'role', 'author');
 
       await service.delete(postId)
 

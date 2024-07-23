@@ -26,34 +26,6 @@ export class PostService {
         }
     }
 
-    static async findFilter(filters?: IPostFilter): Promise<IPost[]> {
-
-        let query: IFilterQuery<IPost> = {};
-
-        if (filters?.title) {
-            query.title = filters.title;
-        }
-
-        if (filters?.author) {
-            query.$text = { $search: filters.author };
-        }
-
-        if (filters?.category) {
-            query.$text = { $search: filters.category };
-        }
-
-        if (filters?.tags) {
-            query.tags = { $in: filters.tags };
-        }
-
-        if (Object.keys(query).some(key => key === 'title' || key === '$text' || key === 'tags')) {
-            query = { $and: [query] };
-        }
-
-        return await PostModel.find(query, { score: { $meta: "textScore" } }).sort({ createdAt: -1 });
-
-    }
-
     static async findbyId(id: string): Promise<IPost | null> {
         return await PostModel.findById(id);
     }
