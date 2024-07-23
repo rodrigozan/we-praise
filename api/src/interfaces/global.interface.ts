@@ -1,22 +1,31 @@
 import { Document, Types } from 'mongoose'
 
 interface IUser {
+    id: Types.ObjectId
     name: string
     email: string
     password: string
     celular: number
     instruments: string[]
+    subteam: string[]
+    active: boolean
     role: string
+}
+
+interface IChangePassword {
+    userPassword: string
+    newPassword: string
 }
 
 interface IPost extends Document {
     title: string
     description: string
-    content: string
+    content: {}
     author: Types.ObjectId
     category: string
     tags: string[]
     createdAt: Date
+    updateAt: [Date]
     type: string
     visibility: string
     files: string[]
@@ -57,7 +66,6 @@ interface IFilterQuery<IPost> {
 
 }
 
-
 interface ISchedule extends Document {
     title: string
     date: Date
@@ -85,4 +93,4 @@ interface IComment extends Document {
 }
 
 
-export { IUser, IPost, IPostFilter, IFilterQuery, ISchedule, IMessage, IComment }
+export { IUser, IChangePassword, IPost, IPostFilter, IFilterQuery, ISchedule, IMessage, IComment }
