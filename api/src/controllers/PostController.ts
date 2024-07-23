@@ -3,7 +3,7 @@ import { Types } from 'mongoose';
 
 import { PostService } from "../services/PostService";
 
-import ValidationHelper from '../helpers/ValidationHelper';
+import ValidationHelper from '../helpers/ValidationPostHelper';
 
 const service = PostService
 
