@@ -39,33 +39,6 @@ interface IPostFilter {
     tags?: string[];
 }
 
-interface IFilterQuery<IPost> {
-    title?: string | { $eq?: string } | { $regex?: RegExp }
-    author?: Types.ObjectId | { $eq?: Types.ObjectId } | { $in?: Types.ObjectId[] }
-    category?: string | { $eq?: string } | { $regex?: RegExp } | { $in?: string[] }
-    tags?: string[] | { $in?: string[] } | { $all?: string[] }
-    createdAt?: Date | { $eq?: Date } | { $gt?: Date } | { $gte?: Date } | { $lt?: Date } | { $lte?: Date }
-    type?: string | { $eq?: string } | { $in?: string[] }
-    visibility?: string | { $eq?: string } | { $in?: string[] }
-    files?: string[] | { $in?: string[] } | { $all?: string[] }
-    comments?: Types.ObjectId[] | { $in?: Types.ObjectId[] }
-
-    $and?: IFilterQuery<IPost>[]
-    $or?: IFilterQuery<IPost>[]
-    $not?: IFilterQuery<IPost>
-
-    $exists?: { [field: string]: boolean }
-    $type?: string
-
-    $text?: {
-        $search: string;
-        $language?: string;
-        $caseSensitive?: boolean;
-        $diacriticSensitive?: boolean;
-    };
-
-}
-
 interface IScale extends Document {
     title: string
     author: Types.ObjectId
@@ -82,11 +55,12 @@ interface IScale extends Document {
 
 interface ISong extends Document {
     title: string,
-    author: string,
+    songAuthor: string,
     version: {
         interpreter: string,
         link: string
     },
+    author: Types.ObjectId
     createdAt: Date
 }
 
@@ -109,4 +83,4 @@ interface IComment extends Document {
 }
 
 
-export { IUser, IChangePassword, IPost, IPostFilter, IFilterQuery, IScale, ISong, IMessage, IComment }
+export { IUser, IChangePassword, IPost, IPostFilter, IScale, ISong, IMessage, IComment }
