@@ -28,7 +28,7 @@ export class App {
     }
 
     private documentation() {
-        setupSwagger(express())
+        setupSwagger(this.server)
     }
 
     private async connection() {
