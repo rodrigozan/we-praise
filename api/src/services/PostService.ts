@@ -2,7 +2,7 @@ import { Types } from 'mongoose';
 
 import { PostModel } from '../models/PostModel';
 
-import { IPost, IPostFilter, IFilterQuery } from 'interfaces/global.interface';
+import { IPost } from 'interfaces/global.interface';
 
 export class PostService {
     static async create(post: IPost): Promise<IPost> {
