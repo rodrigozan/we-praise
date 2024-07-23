@@ -7,7 +7,7 @@ export class UserService {
 
     static async create(data: any) {
         try {
-
+            console.log(data)
             const hashedPassword = await bcrypt.hash(data.password, 8)
             const user = new UserModel({
                 ...data,
@@ -38,8 +38,16 @@ export class UserService {
         } catch (error){
             console.log('Error in service: ',error.message)
             return
-        }
-        
+        }        
+    }
+
+    static async findOne(id: Types.ObjectId) {
+        try {
+            return await UserModel.findOne({id: id})
+        } catch (error){
+            console.log('Error in service: ',error.message)
+            return
+        }        
     }
 
     static async update(id: Types.ObjectId, data: any) {
@@ -48,8 +56,7 @@ export class UserService {
         } catch (error){
             console.log('Error in service: ',error.message)
             return
-        }
-        
+        }        
     }
 
     static async delete(id: Types.ObjectId) {

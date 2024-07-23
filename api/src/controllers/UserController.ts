@@ -43,8 +43,8 @@ class UserController {
 
     public async update(req: Request, res: Response) {
         try {
-            const { name, email } = req.body
-            const body = { name, email }
+            const { name, email,  celular, instruments, subteam, active, role } = req.body
+            const body = { name, email,  celular, instruments, subteam, active, role }
             const objectId = new Types.ObjectId(req.params.id)
 
             const user = await service.update(objectId, body);
