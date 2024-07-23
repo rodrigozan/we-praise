@@ -19,7 +19,7 @@ class ChangePasswordController {
                 return res.status(400).json({ message: 'ID is required in  in ChangePasswordController' })
             }
 
-            const data = await userService.findUserById(id, 'email')            
+            const data = await userService.findUserById(id, '')            
 
             if (!data) {
                 return res.status(400).json({ message: 'User not found in ChangePasswordController' })
