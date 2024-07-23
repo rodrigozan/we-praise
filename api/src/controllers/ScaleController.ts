@@ -3,11 +3,9 @@ import { Types } from "mongoose";
 
 import { ScaleService } from "../services/ScaleService";
 
-import ValidationPostHelper from '../helpers/ValidationPostHelper';
+import { scaleValidationHelper } from '../helpers/validationHelpers';
 
 const service = ScaleService
-
-const validate = ValidationPostHelper
 
 class ScaleController {
     public async create(req: Request, res: Response) {
@@ -15,7 +13,7 @@ class ScaleController {
             const body = req.body
             const userId = new Types.ObjectId(req.params.userId)
 
-            validate.validateUser(userId, body, 'create')
+            await scaleValidationHelper.validateEntity(userId, body, 'create', 'role', 'author');
             body.author = userId
 
             const schema = await service.create(body)
@@ -52,6 +50,47 @@ class ScaleController {
             })
         }
     }
+    public async update(req: Request, res: Response) {
+        try {
+    
+          const body = req.body
+          const scaleId = new Types.ObjectId(req.params.id)
+          const userId = new Types.ObjectId(req.params.userId)
+    
+          await scaleValidationHelper.validateEntity(userId, body, 'update', 'role', 'author');
+    
+          const scale = await service.update(scaleId, body)
+    
+          return res.status(200).json(scale);
+        } catch (error) {
+          console.log('Error in controller: ', error.message);
+          return res.status(400).json({
+            name: error.name,
+            message: error.message,
+            stack: error.stack
+          })
+        }
+      }
+      public async delete(req: Request, res: Response) {
+        try {
+          const body = req.body
+          const scaleId = new Types.ObjectId(req.params.id)
+          const userId = new Types.ObjectId(req.params.userId)
+    
+          await scaleValidationHelper.validateEntity(userId, body, 'delete', 'role', 'author');
+    
+          await service.delete(scaleId)
+    
+          return res.status(200).json({ message: 'User deleted successful' })
+        }
+        catch (error) {
+          return res.status(400).json({
+            name: error.name,
+            message: error.message,
+            stack: error.stack
+          })
+        }
+      }
 }
 
 export default new ScaleController()

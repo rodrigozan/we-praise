@@ -28,8 +28,26 @@ export class ScaleService {
 
     static async findById(id: Types.ObjectId): Promise<IScale[]> {
         try {
-            const result = await ScaleModel.find(id)
-            return result as IScale[]
+            const results = await ScaleModel.find(id)
+            return results as IScale[]
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }
+
+    static async update(id: Types.ObjectId, data: IScale){
+        try {
+           return await ScaleModel.findByIdAndUpdate(id, data, { new: true })
+        } catch (error) {
+            console.error(error);
+            throw error;
+        }
+    }
+
+    static async delete(id: Types.ObjectId){
+        try {
+           return await ScaleModel.findByIdAndDelete(id,)
         } catch (error) {
             console.error(error);
             throw error;
