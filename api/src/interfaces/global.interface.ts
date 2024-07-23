@@ -66,13 +66,28 @@ interface IFilterQuery<IPost> {
 
 }
 
-interface ISchedule extends Document {
+interface IScale extends Document {
     title: string
+    author: Types.ObjectId
     date: Date
-    service: string
-    members: Types.ObjectId[]
+    createdAt: Date,
+    updatedAt: [Date]
+    members: {
+        id: Types.ObjectId[],
+        instrument: string[]
+    }
     songs: Types.ObjectId[]
     comments: Types.ObjectId[]
+}
+
+interface ISong extends Document {
+    title: string,
+    author: string,
+    version: {
+        interpreter: string,
+        link: string
+    },
+    createdAt: Date
 }
 
 interface IMessage extends Document {
@@ -81,7 +96,8 @@ interface IMessage extends Document {
     author: Types.ObjectId
     sentAt: Date
     recipients: Types.ObjectId[]
-    comments: Types.ObjectId[]
+    comments: Types.ObjectId[],
+    createdAt: Date
 }
 
 interface IComment extends Document {
@@ -89,8 +105,8 @@ interface IComment extends Document {
     author: Types.ObjectId
     createdAt: Date
     updatedAt: Date
-    parent: Types.ObjectId
+    parent: Types.ObjectId,
 }
 
 
-export { IUser, IChangePassword, IPost, IPostFilter, IFilterQuery, ISchedule, IMessage, IComment }
+export { IUser, IChangePassword, IPost, IPostFilter, IFilterQuery, IScale, ISong, IMessage, IComment }
