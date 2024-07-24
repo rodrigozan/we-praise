@@ -60,8 +60,9 @@ interface ISong extends Document {
         interpreter: string,
         link: string
     },
+    observations: string
     author: Types.ObjectId
-    createdAt: Date
+    createdAt: Date 
 }
 
 interface IMessage extends Document {
