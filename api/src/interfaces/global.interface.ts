@@ -33,10 +33,10 @@ interface IPost extends Document {
 }
 
 interface IPostFilter {
-    title?: string;
-    author?: string;
-    category?: string;
-    tags?: string[];
+    title?: string
+    author?: string
+    category?: string
+    tags?: string[]
 }
 
 interface IScale extends Document {
@@ -46,7 +46,7 @@ interface IScale extends Document {
     createdAt: Date,
     updatedAt: [Date]
     members: {
-        id: Types.ObjectId[],
+        id: Types.ObjectId[]
         instrument: string[]
     }
     songs: Types.ObjectId[]
@@ -54,12 +54,12 @@ interface IScale extends Document {
 }
 
 interface ISong extends Document {
-    title: string,
-    songAuthor: string,
+    title: string
+    songAuthor: string
     version: {
-        interpreter: string,
+        interpreter: string
         link: string
-    },
+    }
     observations: string
     author: Types.ObjectId
     createdAt: Date 
@@ -71,17 +71,17 @@ interface IMessage extends Document {
     author: Types.ObjectId
     sentAt: Date
     recipients: Types.ObjectId[]
-    comments: Types.ObjectId[],
+    comments: Types.ObjectId[]
     createdAt: Date
 }
 
 interface IComment extends Document {
     content: string
     author: Types.ObjectId
+    parent: Types.ObjectId
+    role: string
     createdAt: Date
     updatedAt: Date
-    parent: Types.ObjectId,
-    role: string
 }
 
 
