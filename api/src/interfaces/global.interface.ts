@@ -81,6 +81,7 @@ interface IComment extends Document {
     createdAt: Date
     updatedAt: Date
     parent: Types.ObjectId,
+    role: string
 }
 
 
