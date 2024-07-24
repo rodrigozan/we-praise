@@ -109,26 +109,11 @@ router.post('/users/:userId/scales', authMiddleware, controller.create)
  *                 type: array
  *                 description: Array of objects of the songs
  *                 items:
- *                   type: object
+ *                   type: string
  *                   properties:
- *                     title: 
+ *                     id: 
  *                       type: string
- *                       description: Title of song
- *                     author: 
- *                       type: string
- *                       description: Author of song
- *                     version: 
- *                       type: array
- *                       description: Array of objects of the versions
- *                       items:
- *                         type: object
- *                         properties:
- *                           interpreter: 
- *                             type: string
- *                             description: Song interpreter
- *                           link: 
- *                             type: string
- *                             description: link of version
+ *                       description: Id of song
  *               author:
  *                 type: string
  *                 description: Author of scale

@@ -10,14 +10,14 @@ const service = ScaleService
 class ScaleController {
     public async create(req: Request, res: Response) {
         try {
-            const body = req.body
+            const body = req.body            
             const userId = new Types.ObjectId(req.params.userId)
 
             await scaleValidationHelper.validateEntity(userId, body, 'create', 'role', 'author');
             body.author = userId
 
-            const schema = await service.create(body)
-            return res.status(200).json(schema)
+            const scale = await service.create(body)
+            return res.status(200).json(scale)
         } catch (error) {
             return res.status(404).json({
                 name: error.name,
@@ -28,8 +28,8 @@ class ScaleController {
 
     public async get(_req: Request, res: Response) {
         try {
-            const schema = service.find()
-            return res.status(200).json(schema)
+            const scale = await service.find()
+            return res.status(200).json(scale)
         } catch (error) {
             return res.status(404).json({
                 name: error.name,
@@ -41,8 +41,8 @@ class ScaleController {
     public async getById(req: Request, res: Response) {
         try {
             const id = new Types.ObjectId(req.params.id)
-            const schema = service.findById(id)
-            return res.status(200).json(schema)
+            const scale = await service.findById(id)
+            return res.status(200).json(scale)
         } catch (error) {
             return res.status(404).json({
                 name: error.name,
