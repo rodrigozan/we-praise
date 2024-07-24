@@ -1,17 +1,8 @@
 import { Router } from 'express'
-
-import userRoutes from './routes/UserRoutes'
-import authRoutes from './routes/AuthRoutes'
-import changePasswordRoutes from './routes/ChangePasswordRoutes'
-import postRoutes from './routes/PostRoutes'
-import scales from './routes/ScalesRoutes'
+import * as routes from './routes'
 
 const router = Router()
 
-router.use(userRoutes)
-router.use(authRoutes)
-router.use(changePasswordRoutes)
-router.use(postRoutes)
-router.use(scales)
+Object.values(routes).forEach(route => router.use(route))
 
 export default router
