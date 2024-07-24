@@ -1,20 +1,14 @@
 import { UserService } from '../services/UserService';
 import ValidationHelper from './ValidationHelper';
-import { IPost, ISong, IScale } from '../interfaces/global.interface';
+import { IPost, ISong, IScale, IMessage } from '../interfaces/global.interface';
 
-const postValidationHelper = new ValidationHelper<IPost>(
-    UserService.findUserById.bind(UserService),  // Vinculando o contexto correto
-    UserService.findOne.bind(UserService)
-);
+function createValidationHelper<T>(): ValidationHelper<T> {
+    return new ValidationHelper<T>(UserService.findUserById.bind(UserService));
+}
 
-const songValidationHelper = new ValidationHelper<ISong>(
-    UserService.findUserById.bind(UserService),  // Vinculando o contexto correto
-    UserService.findOne.bind(UserService)
-);
+const postValidationHelper = createValidationHelper<IPost>();
+const songValidationHelper = createValidationHelper<ISong>();
+const scaleValidationHelper = createValidationHelper<IScale>();
+const messageValidationHelper = createValidationHelper<IMessage>();
 
-const scaleValidationHelper = new ValidationHelper<IScale>(
-    UserService.findUserById.bind(UserService),  // Vinculando o contexto correto
-    UserService.findOne.bind(UserService)
-);
-
-export { postValidationHelper, songValidationHelper, scaleValidationHelper };
+export { postValidationHelper, songValidationHelper, scaleValidationHelper, messageValidationHelper };
