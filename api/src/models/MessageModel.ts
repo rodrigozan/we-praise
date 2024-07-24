@@ -5,9 +5,9 @@ import { IMessage } from 'interfaces/global.interface';
 const messageSchema = new Schema<IMessage>({
   title: { type: String, required: true },
   content: { type: String, required: true },
-  author: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  author: { type: Schema.Types.ObjectId, ref: 'users', required: true },
   sentAt: { type: Date, default: Date.now },
-  recipients: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+  recipients: [{ type: Schema.Types.ObjectId, ref: 'users' }],
   comments: [{ type: Schema.Types.ObjectId, ref: 'comments' }]
 });
 
