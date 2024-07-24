@@ -7,11 +7,12 @@ const versionSchema = new Schema({
   link: { type: [String] },
 })
 
-const scaleSchema = new Schema<ISong>({
+const songSchema = new Schema<ISong>({
   title: { type: String, required: true },
-  songAuthor: { type: String, required: true },
+  songAuthor: { type: String },
   version: [versionSchema],
+  observations: { type: String },
   author: { type: Schema.Types.ObjectId, required: true}
 });
 
-export const SongModel = model('scales', scaleSchema);
+export const SongModel = model('songs', songSchema);

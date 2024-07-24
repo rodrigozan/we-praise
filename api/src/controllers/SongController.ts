@@ -28,7 +28,7 @@ class ScaleController {
 
     public async get(_req: Request, res: Response) {
         try {
-            const song = service.find()
+            const song = await service.find()
             return res.status(200).json(song)
         } catch (error) {
             return res.status(404).json({
@@ -41,7 +41,7 @@ class ScaleController {
     public async getById(req: Request, res: Response) {
         try {
             const id = new Types.ObjectId(req.params.id)
-            const song = service.findById(id)
+            const song = await service.findById(id)
             return res.status(200).json(song)
         } catch (error) {
             return res.status(404).json({
@@ -55,7 +55,7 @@ class ScaleController {
     
           const body = req.body
           const songId = new Types.ObjectId(req.params.id)
-          const userId = new Types.ObjectId(req.params.userId)
+          const userId = new Types.ObjectId(req.params.userId)          
     
           await songValidationHelper.validateEntity(userId, body, 'update', 'role', 'author');
     
