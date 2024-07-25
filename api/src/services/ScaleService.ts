@@ -19,7 +19,6 @@ export class ScaleService {
     static async find(): Promise<IScale[]> {
         try {
             const results = await ScaleModel.find()
-            console.log('Results', results);
             
             return results as IScale[]
         } catch (error) {

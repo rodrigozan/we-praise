@@ -11,7 +11,7 @@ class UserController {
             const user = await service.create(req.body);
             return res.status(201).send(user);
         } catch (error) {
-            console.log('Error in controller: ', error.message);
+  
             return res.status(500).send(error.message);
         }
     }

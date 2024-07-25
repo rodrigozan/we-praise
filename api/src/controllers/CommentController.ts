@@ -68,7 +68,6 @@ class CommentController {
       }
 
       const id = new Types.ObjectId(idParam);
-      console.log('id', id);
       const filter = { id };
 
       const comments = await service.search(filter, postTypeId);
@@ -95,7 +94,6 @@ class CommentController {
 
       return res.status(200).json(comment);
     } catch (error) {
-      console.log('Error in controller: ', error.message);
       return res.status(400).json({
         name: error.name,
         message: error.message,

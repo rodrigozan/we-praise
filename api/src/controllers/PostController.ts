@@ -21,7 +21,7 @@ class PostController {
 
       return res.status(200).json(post);
     } catch (error) {
-      console.log('Error in controller: ', error.message);
+      
       return res.status(400).json({
         name: error.name,
         message: error.message,
@@ -35,7 +35,7 @@ class PostController {
       const posts = await service.find()
       return res.status(200).json(posts);
     } catch (error) {
-      console.log('Error in controller: ', error.message);
+      
       return res.status(400).json({
         name: error.name,
         message: error.message,
@@ -50,7 +50,7 @@ class PostController {
       const posts = await service.findbyId(id || '')
       return res.status(200).json(posts);
     } catch (error) {
-      console.log('Error in controller: ', error.message);
+      
       return res.status(400).json({
         name: error.name,
         message: error.message,
@@ -72,7 +72,7 @@ class PostController {
 
       return res.status(200).json(post);
     } catch (error) {
-      console.log('Error in controller: ', error.message);
+      
       return res.status(400).json({
         name: error.name,
         message: error.message,

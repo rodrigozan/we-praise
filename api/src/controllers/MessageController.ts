@@ -63,7 +63,6 @@ class ScaleController {
     
           return res.status(200).json(message);
         } catch (error) {
-          console.log('Error in controller: ', error.message);
           return res.status(400).json({
             name: error.name,
             message: error.message,

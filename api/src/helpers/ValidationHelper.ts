@@ -41,7 +41,6 @@ class ValidationHelper<T> {
     }
 
     public async validateAlterEntityAuthor(entity: T, text: string, userRegisterField: keyof T) {
-        console.log('entity', entity);
         
         const userRegister = new Types.ObjectId(this.getEntityUserRegister(entity, userRegisterField));
         const entityAuthor = this.getEntityAuthor(entity);  

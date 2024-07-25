@@ -33,8 +33,6 @@ export class AuthService {
         throw new Error('User not found in  in AuthService');
       }
 
-      console.log('User: ' + user.password);
-
       const isPasswordValid = await bcrypt.compare(password, user.password)
       return isPasswordValid;
 

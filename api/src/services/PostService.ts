@@ -21,7 +21,6 @@ export class PostService {
             const results = await PostModel.find()
             return results as IPost[];
         } catch (error) {
-            console.log('Error in service: ', error.message)
             return error.message
         }
     }

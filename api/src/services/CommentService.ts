@@ -128,43 +128,28 @@ export class CommentService {
                     }
                 }
             ]);
-    
-            console.log('Results', results);
             return results as IComment[];
         } catch (error) {
             console.error(error);
             throw error;
         }
     }
-    
-
-    // static async findById(id: Types.ObjectId): Promise<IComment[]> {
-    //     try {
-    //         const results = await CommentModel.find(id)
-    //         return results as IComment[]
-    //     } catch (error) {
-    //         console.error(error);
-    //         throw error;
-    //     }
-    // }
 
     static async search(filter: { id?: Types.ObjectId, username?: string, email?: string }, postTypeId: Types.ObjectId): Promise<IComment[]> {
-        console.log('Id do service', filter);
-        
+
         try {
             const matchStage: any = { $match: { postTypeId: new Types.ObjectId(postTypeId) } };
-    
+
             if (filter.id) {
                 matchStage.$match._id = new Types.ObjectId(filter.id);
             } else if (filter.username) {
                 matchStage.$match.author = filter.username;
             } else if (filter.email) {
-                // Supondo que o email está armazenado em algum campo específico, como `authorEmail`
                 matchStage.$match.authorEmail = filter.email;
             } else {
-                throw new Error('Nenhum filtro válido fornecido');
+                throw new Error('No valid filters provided');
             }
-    
+
             const results = await CommentModel.aggregate([
                 matchStage,
                 {
@@ -226,15 +211,13 @@ export class CommentService {
                     }
                 }
             ]);
-    
-            console.log('Results', results);
             return results as IComment[];
         } catch (error) {
             console.error(error);
             throw error;
         }
     }
-    
+
 
     static async update(id: Types.ObjectId, data: IComment) {
         try {

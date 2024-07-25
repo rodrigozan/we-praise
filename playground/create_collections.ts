@@ -105,7 +105,7 @@ async function run() {
             },
         ]);
 
-        console.log('Collections e documents success created');
+        console.log('Collections and documents success created');
     } finally {
         await client.close();
     }
