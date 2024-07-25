@@ -79,6 +79,8 @@ interface IComment extends Document {
     content: string
     author: Types.ObjectId
     parent: Types.ObjectId
+    children: Object[]
+    postTypeId: Types.ObjectId
     role: string
     createdAt: Date
     updatedAt: Date
