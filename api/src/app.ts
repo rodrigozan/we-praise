@@ -1,8 +1,9 @@
 import express from "express"
-import { setupSwagger } from './swagger'
 import * as dotenv from 'dotenv'
+import cors from 'cors'
 
-import { Connection } from './database/Connection'
+import { setupSwagger } from './swagger'
+import { Connection } from './database/Connection' 
 
 import router from "./router"
 
@@ -13,13 +14,14 @@ export class App {
 
     constructor() {
         this.server = express()
-        this.middleware()
         this.connection()
+        this.middleware()        
         this.routes()
         this.documentation()
     }
 
     private middleware() {
+        this.server.use(cors())
         this.server.use(express.json())
     }
 
