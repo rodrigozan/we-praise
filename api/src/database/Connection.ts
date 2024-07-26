@@ -8,6 +8,8 @@ export class Connection {
     static async connect() {
         try {
             await mongoose.connect(process.env.DB_URI as string);
+            console.log('Dabatase connected');
+            
         } catch (error) {
             throw new Error(error)
         }
