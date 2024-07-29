@@ -2,13 +2,13 @@ export class IListDictionary {
 
     /* Titles */
 
-    loading = 'Carregando...'
-    loadingWait = 'Aguarde...'
-    loadingUpdate = 'Atualizando...'
-    loadingSend = 'Enviando...'
     titleAPP = 'We Praise'
     titleWelcome = 'Bem-vindo(a)'
     titleTo = 'ao'
+    titleHome = {
+        pt: 'Página Inicial',
+        en: 'Home Page'
+    }
     titleName = 'Nome'
     titleEmail = 'Email'
     titlePassword = 'Senha'
@@ -72,10 +72,19 @@ export class IListDictionary {
     /* Routes */
     routeMain = 'main'
 
+    /* Loadings */
+    loading = 'Carregando...'
+    loadingWait = 'Aguarde...'
+    loadingUpdate = 'Atualizando...'
+    loadingSend = 'Enviando...'
+
     /* Buttons */
 
     btnAccess = 'Acessar'
-    btnLogout = 'Sair'
+    btnLogout = {
+        pt: 'Sair',
+        en: 'Logout'
+    }
     btnConfirm = 'Confirmar'
     btnAdvance = 'Avançar'
     btnNext = 'Próximo'
@@ -115,5 +124,5 @@ export class IListDictionary {
     messageContentAddError = 'Erro ao criar [ID]!'
     messageContentEditError = 'Erro ao alterar [ID]!'
     messageContentRemoveError = 'Erro ao remover [ID]!'
-    
+
 }
