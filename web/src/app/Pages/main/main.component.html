@@ -1,0 +1,29 @@
+<div class="main container">
+  <ul class="nav justify-content-between">
+    <li class="nav-item">
+      <a class="nav-link" (click)="goTo('')">
+        <h1>{{ dictionary.titleWelcome }} {{ dictionary.titleTo }} {{ dictionary.titleAPP }}</h1>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="logout()">
+        <button type="button" class="btn">{{ dictionary.btnLogout.pt }} <app-bootstrap-icon iconName="box-arrow-right" iconTitle="{{dictionary.btnLogout.pt}}r"></app-bootstrap-icon></button>
+      </a>
+    </li>
+  </ul>
+  <div *ngIf="!itsMan">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="container" *ngIf="itsMan">
+    <div class="row">
+      <div class="col-md-6" *ngFor="let c of content">
+        <div class="card" (click)="goTo(c.route)">
+          <div class="card-body">
+            <h5 class="card-title">{{ c.title }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
