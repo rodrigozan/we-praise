@@ -1,0 +1,15 @@
+# Diretórios do Visual Studio
+.vs/
+
+# Arquivos e diretórios de saída da compilação
+*.pdb
+*.suo
+*.tmp
+*.user
+bin/
+obj/
+
+# Outros arquivos a serem ignorados
+*.user
+*.suo
+Configuration.cs
