@@ -1,4 +1,4 @@
-import { Component, TemplateRef, ViewChild, ChangeDetectorRef } from '@angular/core';
+import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
@@ -25,7 +25,6 @@ export class SongsComponent {
   songs: ISong[] = []
   song: ISong | null = null;
   currentView: string = '';
-  selectedSong: ISong | null = null; 
   @ViewChild('modalTemplate') modalTemplate!: TemplateRef<any>;
   modalRef!: BsModalRef;
   modalTitle!: string;
@@ -35,8 +34,7 @@ export class SongsComponent {
   constructor(
     private api: ApiService, 
     private modalService: BsModalService, 
-    private levelUserService: LevelUserService,
-    private cdr: ChangeDetectorRef
+    private levelUserService: LevelUserService
   ) { }
 
   ngOnInit(): void {    
@@ -76,33 +74,14 @@ export class SongsComponent {
     }
     this.currentView = action
     this.song = song; 
-    this.cdr.detectChanges();
     this.modalRef = this.modalService.show(this.modalTemplate);
     this.modalRef.content.title = this.modalTitle
   }
-  
+
   canEditOrDelete(song: any): boolean {
     return this.levelUserService.isAdmin() || (this.levelUserService.isMinister() && this.currentUser?._id === song.author._id);
   }
 
-  // viewSong(song: ISong): void {
-  //   this.selectedSong = song;
-  //   this.currentView = 'view';
-  // }
-
-  // editSong(song: ISong): void {
-  //   this.selectedSong = song;
-  //   this.currentView = 'edit';
-  // }
-
-  // deleteSong(song: ISong): void {
-  //   this.selectedSong = song;
-  //   this.currentView = 'delete';
-  // }
-
-  // closeView(): void {
-  //   this.currentView = '';
-  //   this.selectedSong = null;
-  // }
-
 }
+
+

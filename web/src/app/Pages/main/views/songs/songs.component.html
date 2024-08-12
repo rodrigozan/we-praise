@@ -47,10 +47,10 @@
     <h4 class="modal-title pull-left">{{ modalTitle }}</h4>
     <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">X</button>
   </div>
-  <div class="modal-body">
+  <div>
     <app-single-song *ngIf="currentView === 'single'" [song]="song" [modalRef]="modal"></app-single-song>
-    <app-edit-song *ngIf="currentView === 'edit'" [song]="selectedSong" [modalRef]="modal"></app-edit-song>
-    <app-delete-song *ngIf="currentView === 'delete'" [song]="selectedSong" [modalRef]="modal"></app-delete-song>
+    <app-edit-song *ngIf="currentView === 'edit'" [song]="song" [modalRef]="modal"></app-edit-song>
+    <app-delete-song *ngIf="currentView === 'delete'" [song]="song" [modalRef]="modal"></app-delete-song>
   </div>
 </ng-template>
 

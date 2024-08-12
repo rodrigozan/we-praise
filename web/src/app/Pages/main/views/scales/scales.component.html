@@ -5,22 +5,23 @@
       <th scope="col">{{ dictionary.titleDate.pt }}</th>
       <th scope="col">{{ dictionary.titleMembers.pt }}</th>
       <th scope="col">{{ dictionary.titleSongs.pt }}</th>
+      <th scope="col">{{ dictionary.titleActions.pt }}</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let scale of scales">
+    <tr *ngFor="let scale of scales"> 
       <th>{{ scale.title }}</th>
       <td>{{ scale.date | date: 'dd/MM/yyyy' }} as {{ scale.date | date: 'HH:mm' }}</td>
       <td>
         <li class="list-group-item" *ngIf="scale.members">
-          <span><strong>{{ dictionary.titleMinisters.pt }}</strong></span>: <span>{{ scale.members.minister.name }}, {{ scale.members.minister_two.name }}</span><br />
-          <span><strong>{{ dictionary.titleBacks }}</strong></span>: <span>{{ scale.members.back_one.name }}, {{ scale.members.back_two.name }}, {{ scale.members.back_three.name }}</span><br />
-          <span><strong>{{ dictionary.titleAcousticGuitar.pt }}</strong></span>: <span>{{ scale.members.acoustic_guitar.name }}</span><br />
-          <span><strong>{{ dictionary.titleKeyboard.pt }}</strong></span>: <span>{{ scale.members.keyboard.name }}</span><br />
-          <span><strong>{{ dictionary.titleGuitar.pt }}</strong></span>: <span>{{ scale.members.guitar.name }}</span><br />
-          <span><strong>{{ dictionary.titleBass.pt }}</strong></span>: <span>{{ scale.members.bass.name }}</span><br />
-          <span><strong>{{ dictionary.titleDrums.pt }}</strong></span>: <span>{{ scale.members.drums.name }}</span><br />
-          <span><strong>{{ dictionary.titleAudioTech.pt }}</strong></span>: <span>{{ scale.members.audio_tech.name }}</span>
+          <span><strong>{{ dictionary.titleMinisters.pt }}</strong></span>: <span>{{ scale.members.minister?.name }}, {{ scale.members.minister_two?.name }}</span><br />
+          <span><strong>{{ dictionary.titleBacks }}</strong></span>: <span>{{ scale.members.back_one?.name }}, {{ scale.members.back_two?.name }}, {{ scale.members.back_three?.name }}</span><br />
+          <span><strong>{{ dictionary.titleAcousticGuitar.pt }}</strong></span>: <span>{{ scale.members.acoustic_guitar?.name }}</span><br />
+          <span><strong>{{ dictionary.titleKeyboard.pt }}</strong></span>: <span>{{ scale.members.keyboard?.name }}</span><br />
+          <span><strong>{{ dictionary.titleGuitar.pt }}</strong></span>: <span>{{ scale.members.guitar?.name }}</span><br />
+          <span><strong>{{ dictionary.titleBass.pt }}</strong></span>: <span>{{ scale.members.bass?.name }}</span><br />
+          <span><strong>{{ dictionary.titleDrums.pt }}</strong></span>: <span>{{ scale.members.drums?.name }}</span><br />
+          <span><strong>{{ dictionary.titleAudioTech.pt }}</strong></span>: <span>{{ scale.members.audio_tech?.name }}</span>
         </li>
       </td>
       <td>
@@ -29,7 +30,29 @@
         </ul>
         <p *ngIf="scale.songs.length === 0">Nenhuma música disponível</p>
       </td>
-      
+      <td>
+        <button (click)="openModal('single', scale)" class="btn btn-info">
+          <i class="bi bi-eye"></i> View
+        </button>
+        <button *ngIf="canEditOrDelete(scale)" (click)="openModal('edit', scale)" class="btn btn-warning">
+          <i class="bi bi-pencil"></i> Edit
+        </button>
+        <button *ngIf="canEditOrDelete(scale)" (click)="openModal('delete', scale)" class="btn btn-danger">
+          <i class="bi bi-trash"></i> Delete
+        </button>
+      </td>      
     </tr>
   </tbody>
 </table>
+
+<ng-template #modalTemplate let-modal (click)="modalRef.hide()">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{ modalTitle }}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">X</button>
+  </div>
+  <div>
+    <app-single-scale *ngIf="currentView === 'single'" [scale]="scale" [modalRef]="modal"></app-single-scale>
+    <app-edit-scale *ngIf="currentView === 'edit'" [scale]="scale" [modalRef]="modal"></app-edit-scale>
+    <app-delete-scale *ngIf="currentView === 'delete'" [scale]="scale" [modalRef]="modal"></app-delete-scale>
+  </div>
+</ng-template>

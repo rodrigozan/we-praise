@@ -1,0 +1,11 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{ dictionary.titleMusicDetails.pt }}</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="hide()">X</button>
+</div>
+<div class="modal-body">
+  <div>
+    <h2>{{ scale?.title }}</h2>
+    <p><strong>{{ dictionary.titleAuthor.pt }}: </strong> {{ scale?.author }}</p>
+    <button (click)="close()">{{ dictionary.btnClose.pt }}</button>
+  </div>
+</div>
