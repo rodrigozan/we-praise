@@ -3,6 +3,7 @@ import { Types } from "mongoose";
 import { IMessage } from "../interfaces/global.interface";
 
 import { MessageModel } from "../models/MessageModel";
+import { UserModel } from '../models/UserModel';
 
 export class MessageService {
     static async create(message: IMessage): Promise<IMessage>{
@@ -19,7 +20,17 @@ export class MessageService {
     static async find(): Promise<IMessage[]> {
         try {
             const results = await MessageModel.find()
-            console.log('Results', results);
+            .populate({
+                path: 'author',
+                model: UserModel,
+                select: 'name role'
+            })
+            .populate({
+                path: 'recipients',
+                model: UserModel,
+                select: 'name role'
+            })
+            .exec()
             
             return results as IMessage[]
         } catch (error) {
@@ -31,6 +42,17 @@ export class MessageService {
     static async findById(id: Types.ObjectId): Promise<IMessage[]> {
         try {
             const results = await MessageModel.find(id)
+            .populate({
+                path: 'author',
+                model: UserModel,
+                select: 'name role'
+            })
+            .populate({
+                path: 'recipients',
+                model: UserModel,
+                select: 'name role'
+            })
+            .exec()
             return results as IMessage[]
         } catch (error) {
             console.error(error);

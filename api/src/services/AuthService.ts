@@ -1,24 +1,20 @@
 
+// import { Types } from 'mongoose'
 import jwt, { Secret } from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
+
+import { IUser } from 'interfaces/global.interface';
 
 import { UserModel } from '../models/UserModel';
 
 const JWT_SECRET = process.env.JWT_SECRET as Secret;
 
-interface User {
-  _id: string;
-  email: string;
-  password: string;
-  checkPassword(password: string): Promise<boolean>;
-}
-
 export class AuthService {  
 
-  static async findUserByEmail(email: string): Promise<User | null> {
+  static async findUserByEmail(email: string): Promise<IUser  | null> {
     try {    
 
-      return await UserModel.findOne({ email: email }, `email password`);
+      return await UserModel.findOne({ email: email }, `email password role`);
       
     } catch (error) {
       throw new Error(`User not found in AuthService: ${error}`);
@@ -41,9 +37,9 @@ export class AuthService {
     } 
   }
 
-  static generateToken(user: User): string {
+  static generateToken(user: IUser): string {
     try {
-      return jwt.sign({ id: user._id }, JWT_SECRET!, { expiresIn: '7d' });
+      return jwt.sign({ id: user.id }, JWT_SECRET!, { expiresIn: '7d' });
     } catch (error) {
       throw new Error(`Token generator error: ${error}`);
     }

@@ -33,8 +33,9 @@ class UserController {
             const objectId = new Types.ObjectId(req.params.id)
             const user = await service.findUserById(objectId, '');
             if (!user) {
-                return res.status(404).send();
+                return res.status(404).send('User not found');
             }
+            console.log('User request:',user)
             return res.status(200).send(user);
         } catch (error) {
             return res.status(500).send(error);

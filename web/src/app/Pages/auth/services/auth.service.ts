@@ -23,6 +23,7 @@ export class AuthService {
       .pipe(
         map(response => {
           this.storageService.set('token', response.token);
+          this.storageService.set('role', response.role);
           return response;
         }),
         catchError(error => {

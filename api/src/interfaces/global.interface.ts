@@ -5,6 +5,7 @@ interface IUser {
     name: string
     email: string
     password: string
+    checkPassword(password: string): Promise<boolean>;
     celular: number
     instruments: string[]
     subteam: string[]
@@ -21,7 +22,7 @@ interface IPost extends Document {
     title: string
     description: string
     content: {}
-    author: Types.ObjectId
+    author: Types.ObjectId | IUser[]
     category: string
     tags: string[]
     createdAt: Date
@@ -34,7 +35,7 @@ interface IPost extends Document {
 
 interface IPostFilter {
     title?: string
-    author?: string
+    author?: string | IUser[]
     category?: string
     tags?: string[]
 }
@@ -45,11 +46,8 @@ interface IScale extends Document {
     date: Date
     createdAt: Date,
     updatedAt: [Date]
-    members: {
-        id: Types.ObjectId[]
-        instrument: string[]
-    }
-    songs: Types.ObjectId[]
+    members: Types.ObjectId[] | IUser[]
+    songs: Types.ObjectId[] | ISong[]
     comments: Types.ObjectId[]
 }
 
@@ -61,23 +59,23 @@ interface ISong extends Document {
         link: string
     }
     observations: string
-    author: Types.ObjectId
+    author: Types.ObjectId | IUser[]
     createdAt: Date 
 }
 
 interface IMessage extends Document {
     title: string
     content: string
-    author: Types.ObjectId
+    author: Types.ObjectId | IUser[]
     sentAt: Date
-    recipients: Types.ObjectId[]
+    recipients: Types.ObjectId[] | IUser[]
     comments: Types.ObjectId[]
     createdAt: Date
 }
 
 interface IComment extends Document {
     content: string
-    author: Types.ObjectId
+    author: Types.ObjectId | IUser[]
     parent: Types.ObjectId
     children: Object[]
     postTypeId: Types.ObjectId

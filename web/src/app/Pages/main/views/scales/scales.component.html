@@ -1,1 +1,35 @@
-<p>scales works!</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">{{ dictionary.titleEvent.pt }}</th>
+      <th scope="col">{{ dictionary.titleDate.pt }}</th>
+      <th scope="col">{{ dictionary.titleMembers.pt }}</th>
+      <th scope="col">{{ dictionary.titleSongs.pt }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let scale of scales">
+      <th>{{ scale.title }}</th>
+      <td>{{ scale.date | date: 'dd/MM/yyyy' }} as {{ scale.date | date: 'HH:mm' }}</td>
+      <td>
+        <li class="list-group-item" *ngIf="scale.members">
+          <span><strong>{{ dictionary.titleMinisters.pt }}</strong></span>: <span>{{ scale.members.minister.name }}, {{ scale.members.minister_two.name }}</span><br />
+          <span><strong>{{ dictionary.titleBacks }}</strong></span>: <span>{{ scale.members.back_one.name }}, {{ scale.members.back_two.name }}, {{ scale.members.back_three.name }}</span><br />
+          <span><strong>{{ dictionary.titleAcousticGuitar.pt }}</strong></span>: <span>{{ scale.members.acoustic_guitar.name }}</span><br />
+          <span><strong>{{ dictionary.titleKeyboard.pt }}</strong></span>: <span>{{ scale.members.keyboard.name }}</span><br />
+          <span><strong>{{ dictionary.titleGuitar.pt }}</strong></span>: <span>{{ scale.members.guitar.name }}</span><br />
+          <span><strong>{{ dictionary.titleBass.pt }}</strong></span>: <span>{{ scale.members.bass.name }}</span><br />
+          <span><strong>{{ dictionary.titleDrums.pt }}</strong></span>: <span>{{ scale.members.drums.name }}</span><br />
+          <span><strong>{{ dictionary.titleAudioTech.pt }}</strong></span>: <span>{{ scale.members.audio_tech.name }}</span>
+        </li>
+      </td>
+      <td>
+        <ul class="list-group list-group-flush" *ngIf="scale.songs.length > 0">
+          <li class="list-group-item " *ngFor="let song of scale.songs">{{ song.title }}</li>
+        </ul>
+        <p *ngIf="scale.songs.length === 0">Nenhuma música disponível</p>
+      </td>
+      
+    </tr>
+  </tbody>
+</table>

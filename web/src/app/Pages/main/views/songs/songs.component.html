@@ -1,1 +1,57 @@
-<p>songs works!</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">{{ dictionary.titleTitle.pt }}</th>
+      <th scope="col">{{ dictionary.titleAuthor.pt }}</th>
+      <th scope="col">{{ dictionary.titleVersion.pt }}</th>
+      <th scope="col">{{ dictionary.titlePostedBy.pt }}</th>
+      <th scope="col">{{ dictionary.titleObservations.pt }}</th>
+      <th scope="col">{{ dictionary.titleActions.pt }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let song of songs">
+      <th>{{ song.title }}</th>
+      <td>{{ song.songAuthor }}</td>
+      <td>
+        <ul class="list-group list-group-flush" *ngFor="let version of song.version">
+          <li class="list-group-item">
+            <span><strong>{{ dictionary.titleInterpreter.pt }}</strong></span>:
+            <span *ngFor="let interpreter of version.interpreter">{{ interpreter }}</span><br />
+          </li>
+          <li class="list-group-item">
+            <span><strong>{{ dictionary.titleLink }}</strong></span>:
+            <span *ngFor="let link of version.link"><a href="{{ link }}" target="_blank">{{ link }}</a></span>
+          </li>
+        </ul>
+      </td>
+      <td>{{ song.author.name }}</td>
+      <td>{{ song.observations }}</td>
+      <td>
+        <button (click)="openModal('single', song)" class="btn btn-info">
+          <i class="bi bi-eye"></i> View
+        </button>
+        <button *ngIf="canEditOrDelete(song)" (click)="openModal('edit', song)" class="btn btn-warning">
+          <i class="bi bi-pencil"></i> Edit
+        </button>
+        <button *ngIf="canEditOrDelete(song)" (click)="openModal('delete', song)" class="btn btn-danger">
+          <i class="bi bi-trash"></i> Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #modalTemplate let-modal (click)="modalRef.hide()">
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{ modalTitle }}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">X</button>
+  </div>
+  <div class="modal-body">
+    <app-single-song *ngIf="currentView === 'single'" [song]="song" [modalRef]="modal"></app-single-song>
+    <app-edit-song *ngIf="currentView === 'edit'" [song]="selectedSong" [modalRef]="modal"></app-edit-song>
+    <app-delete-song *ngIf="currentView === 'delete'" [song]="selectedSong" [modalRef]="modal"></app-delete-song>
+  </div>
+</ng-template>
+
+

@@ -3,6 +3,7 @@ import { Types } from "mongoose";
 import { ISong } from "../interfaces/global.interface";
 
 import { SongModel } from "../models/SongModel";
+import { UserModel } from '../models/UserModel';
 
 export class SongService {
     static async create(song: ISong): Promise<ISong>{
@@ -19,6 +20,12 @@ export class SongService {
     static async find(): Promise<ISong[]> {
         try {
             const results = await SongModel.find()
+             .populate({
+                path: 'author',
+                model: UserModel,
+                select: 'name role'
+            })
+            .exec()
             return results as ISong[]
         } catch (error) {
             console.error(error);
@@ -29,6 +36,12 @@ export class SongService {
     static async findById(id: Types.ObjectId): Promise<ISong[]> {
         try {
             const results = await SongModel.find(id)
+             .populate({
+                path: 'author',
+                model: UserModel,
+                select: 'name role'
+            })
+            .exec()
             return results as ISong[]
         } catch (error) {
             console.error(error);

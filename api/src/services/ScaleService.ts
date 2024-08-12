@@ -3,6 +3,7 @@ import { Types } from "mongoose";
 import { IScale } from "../interfaces/global.interface";
 
 import { ScaleModel } from "../models/ScaleModel";
+import { UserModel  } from "../models/UserModel";
 
 export class ScaleService {
     static async create(schema: IScale): Promise<IScale>{
@@ -19,7 +20,16 @@ export class ScaleService {
     static async find(): Promise<IScale[]> {
         try {
             const results = await ScaleModel.find()
-            
+            .populate({
+              path: 'songs',
+              select: 'title'
+          })
+            .populate({
+                path: 'members.minister members.minister_two members.back_one members.back_two members.back_three members.keyboard members.acoustic_guitar members.guitar members.bass members.drums members.audio_tech',
+                model: UserModel,
+                select: 'name instruments'
+            })
+            .exec();            
             return results as IScale[]
         } catch (error) {
             console.error(error);
@@ -30,6 +40,17 @@ export class ScaleService {
     static async findById(id: Types.ObjectId): Promise<IScale[]> {
         try {
             const results = await ScaleModel.find(id)
+            .populate({
+              path: 'songs',
+              select: 'title'
+          })
+            .populate({
+                path: 'members.minister members.minister_two members.back_one members.back_two members.back_three members.keyboard members.acoustic_guitar members.guitar members.bass members.drums members.audio_tech',
+                model: UserModel,
+                select: 'name instruments'
+            })
+            .exec();
+            console.log(results as IScale[])
             return results as IScale[]
         } catch (error) {
             console.error(error);

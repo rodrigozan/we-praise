@@ -6,6 +6,7 @@ import { BootstrapIconComponent } from '../../Components/bootstrap-icon/bootstra
 
 import { ConfirmTokenService } from '../../Services/confirm-token/confirm-token.service'
 import { AuthService } from '../auth/services/auth.service'
+import { LevelUserService } from './services/level-user/level-user.service'
 
 import { IListDictionary } from '../../Interfaces/dictionary'
 
@@ -31,10 +32,16 @@ export class MainComponent implements OnInit {
     { title: this.dictionary.titleSongs.pt, route: this.dictionary.titleSongs.en   }
   ]
 
-  constructor(private router: Router, private confirmToken: ConfirmTokenService, private auth: AuthService){}
+  constructor(
+    private router: Router, 
+    private confirmToken: ConfirmTokenService, 
+    private auth: AuthService,
+    private levelUserService: LevelUserService
+  ){}
 
   ngOnInit(): void {
     this.confirmToken.isLogged()
+    this.levelUserService.loadUserFromStorage()
   }
 
   goTo(route: string){

@@ -7,6 +7,7 @@ import { ILogin } from './interfaces/login.interface';
 
 import { AuthService } from './services/auth.service'; 
 import { ConfirmTokenService } from '../../Services/confirm-token/confirm-token.service';
+import { LevelUserService } from '../main/services/level-user/level-user.service';
 
 @Component({
   selector: 'app-auth',
@@ -25,7 +26,8 @@ export class AuthComponent implements OnInit{
     private authService: AuthService, 
     private router: Router, 
     private location: Location,
-    private confirmToken: ConfirmTokenService
+    private confirmToken: ConfirmTokenService,
+    private levelUserService: LevelUserService
   ) {}
 
   ngOnInit(): void {
@@ -41,7 +43,10 @@ export class AuthComponent implements OnInit{
       }
       this.authService.login(credentials)
         .subscribe(
-          () => {
+          (res) => {
+            this.levelUserService.setCurrentUser(res)
+            console.log('res', res);
+            
             this.router.navigate(['/']);
           },
           error => {            

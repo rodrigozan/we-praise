@@ -23,7 +23,10 @@ export class IListDictionary {
     titleLocal = 'Local'
     titleDateHours = 'Data / Hora'
     titleHours = 'Hora'
-    titleDate = 'Data'
+    titleDate = {
+        pt: 'Data',
+        en: 'Date'
+    }
     titleNew = 'Novo'
     titleFilter = 'Filtrar'
     titleAdvancedFilter = 'Filtro Avançado'
@@ -51,6 +54,10 @@ export class IListDictionary {
     titleUsername = 'Usuário'
     titleUsernames = 'Usuários'
     titleListing = 'Listagem'
+    titleMusicDetails = {
+        pt: 'Detalhes da Música',
+        en: 'Music Details'
+    }
 
     titleScales = {
         pt: 'Escalas',
@@ -64,10 +71,90 @@ export class IListDictionary {
         pt: 'Músicas',
         en: 'Musics'
     }
+    titleTitle = {
+        pt: 'Título',
+        en: 'Title'
+    }
+    titleAuthor = {
+        pt: 'Autor',
+        en: 'Author'
+    }
+    titleVersion = {
+        pt: 'Versão',
+        en: 'Version'
+    }
+    titleInterpreter = {
+        pt: 'Interprete',
+        en: 'Interpreter'
+    }
+    titleLink = 'Link'
+    titleLinks = 'Links'
+    titlePostedBy= {
+        pt: 'Publicado por',
+        en: 'Posted by'
+    }
+    titleCreatedBy = {
+        pt: 'Criado por',
+        en: 'Created by'
+    }
+    titleObservations = {
+        pt: 'Observações',
+        en: 'Observations'
+    }
+    titleActions = {
+        pt: 'Acções',
+        en: 'Actions'
+    }
     titleMessages = {
         pt: 'Mensagens',
         en: 'Messages'
     }
+    titleEvent = {
+        pt: 'Evento',
+        en: 'Event'
+    }
+    titleMember = {
+        pt: 'Membro',
+        en: 'Member'
+    }
+    titleMembers = {
+        pt: 'Membros',
+        en: 'Members'
+    }
+    titleMinisters = {
+        pt: 'Ministros',
+        en: 'Ministers'
+    }
+    titleMinister = {
+        pt: 'Ministro',
+        en: 'Minister'
+    }
+    titleBacks = "Backs"
+    titleKeyboard = {
+        pt: 'Teclado',
+        en: 'Keyboard'
+    }
+    titleAcousticGuitar = {
+        pt: 'Violão',
+        en: 'Acoustic Guitar'
+    }
+    titleGuitar = {
+        pt: 'Guitarra',
+        en: 'Guitar'
+    }
+    titleBass = {
+        pt: 'Baixo',
+        en: 'Bass'
+    }
+    titleDrums = {
+        pt: 'Bateria',
+        en: 'Drums'
+    }
+    titleAudioTech = {
+        pt: 'Técnico de Som',
+        en: 'Audio Tech'
+    }
+
 
     /* Routes */
     routeMain = 'main'
@@ -101,6 +188,10 @@ export class IListDictionary {
     btnDelete = 'Excluir'
     btnKeepSignedIn = 'Mantenha-me conectado'
     btnSignedIn = 'Conectar'
+    btnClose = {
+        pt: 'Fechar',
+        en: 'Close'
+    }
 
     /* Toasts */
 

@@ -46,9 +46,9 @@ class PostController {
 
   public async getOne(req: Request, res: Response) {
     try {
-      const id = req.params.id
-      const posts = await service.findbyId(id || '')
-      return res.status(200).json(posts);
+      const id = new Types.ObjectId(req.params.id)
+      const post = await service.findById(id)
+      return res.status(200).json(post);
     } catch (error) {
       
       return res.status(400).json({

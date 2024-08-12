@@ -1,0 +1,28 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{ dictionary.titleMusicDetails.pt }}</h4>
+  <button type="button" class="close pull-right" aria-label="Close" (click)="hide()">X</button>
+</div>
+<div class="modal-body">
+  <div>
+    <h2>{{ song?.title }}</h2>
+    <p><strong>{{ dictionary.titleAuthor.pt }}: </strong> {{ song?.songAuthor }}</p>
+    <div *ngFor="let version of song?.version">
+      <div>
+        <span><strong>{{ dictionary.titleInterpreter.pt }}</strong></span>:
+        <span *ngFor="let interpreter of version.interpreter">{{ interpreter }}</span><br />
+      </div>
+      <hr />
+      <div>
+        <span><strong>{{ dictionary.titleLink }}</strong></span>:
+        <div *ngFor="let link of version.link">
+          <iframe width="560" height="315" [src]="getYouTubeVideoUrl(version.link[0])" title="Youtube" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+          </iframe>
+        </div>
+        <span *ngFor="let link of version.link"><a href="{{ link }}" target="_blank">{{ dictionary.titleLink }}</a></span>
+      </div>
+    </div>
+    <button (click)="close()">{{ dictionary.btnClose.pt }}</button>
+  </div>
+</div>
