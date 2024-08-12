@@ -1,16 +1,26 @@
 <div class="main container">
-  <ul class="nav justify-content-between">
-    <li class="nav-item">
-      <a class="nav-link" (click)="goTo('')">
-        <!-- <h1>{{ dictionary.titleWelcome }} {{ dictionary.titleTo }} {{ dictionary.titleAPP }}</h1> -->
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" (click)="logout()">
-        <button type="button" class="btn">{{ dictionary.btnLogout.pt }} <app-bootstrap-icon iconName="box-arrow-right" iconTitle="{{dictionary.btnLogout.pt}}r"></app-bootstrap-icon></button>
-      </a>
-    </li>
-  </ul>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" (click)="goTo('')">{{ dictionary.titleWelcome }} {{ dictionary.titleTo }} {{ dictionary.titleAPP }}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngFor="let link of links">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="{{ link.route }}">{{ link.text.pt | json }}</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <a class="nav-link" (click)="logout()">
+          <button type="button" class="btn btn-outline-danger">{{ dictionary.btnLogout.pt }} <app-bootstrap-icon iconName="box-arrow-right" iconTitle="{{dictionary.btnLogout.pt}}r"></app-bootstrap-icon></button>
+        </a>
+      </div>
+    </div>
+  </nav>
   <div *ngIf="!itsMan">
     <router-outlet></router-outlet>
   </div>

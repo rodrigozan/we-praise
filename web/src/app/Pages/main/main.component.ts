@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { RouterOutlet, Router } from '@angular/router'
+import { RouterModule, RouterOutlet, Router } from '@angular/router'
 
 import { BootstrapIconComponent } from '../../Components/bootstrap-icon/bootstrap-icon.component'
 
@@ -15,15 +15,35 @@ import { fadeAnimation } from '../../Animations/animations'
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, BootstrapIconComponent],
+  imports: [CommonModule, RouterModule, RouterOutlet, BootstrapIconComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
   animations: [fadeAnimation]
 })
+
 export class MainComponent implements OnInit {
 
   dictionary: IListDictionary = new IListDictionary()
   itsMan: Boolean = true
+
+  links = [
+    {
+      route: 'main/scales',
+      text: this.dictionary.titleScales
+    },
+    {
+      route: 'main/posts',
+      text: this.dictionary.titlePosts
+    },
+    {
+      route: 'main/songs',
+      text: this.dictionary.titleSongs
+    },
+    {
+      route: 'main/messages',
+      text: this.dictionary.titleMessages
+    }  
+  ]
 
   content = [
     { title: this.dictionary.titleScales.pt, route: this.dictionary.titleScales.en },
