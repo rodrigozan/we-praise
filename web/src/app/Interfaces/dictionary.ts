@@ -27,6 +27,10 @@ export class IListDictionary {
         pt: 'Data',
         en: 'Date'
     }
+    titleLogin = {
+        pt: 'Entrar',
+        en: 'Login'
+    }
     titleNew = 'Novo'
     titleFilter = 'Filtrar'
     titleAdvancedFilter = 'Filtro Avançado'
@@ -67,7 +71,12 @@ export class IListDictionary {
     titleAgain = 'Novamente'
     titleUsername = 'Usuário'
     titleUsernames = 'Usuários'
+    titleProfile = {
+        pt: 'Perfil',
+        en: 'Profile'
+    }
     titleListing = 'Listagem'
+
     titleMusicDetails = {
         pt: 'Detalhes da Música',
         en: 'Music Details'
@@ -233,5 +242,9 @@ export class IListDictionary {
     messageContentAddError = 'Erro ao criar [ID]!'
     messageContentEditError = 'Erro ao alterar [ID]!'
     messageContentRemoveError = 'Erro ao remover [ID]!'
+    messageLogout = {
+        pt: 'Você foi deslogado',
+        en: 'You have been logged out'
+    }
 
 }
