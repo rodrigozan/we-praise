@@ -26,7 +26,7 @@
     </div>
     <div *ngIf="itsMan">
       <div class="row">
-        <div class="col-md-6" *ngFor="let c of content">
+        <div class="col-md-6 mb-4" *ngFor="let c of content">
           <div class="card" (click)="goTo(c.route)">
             <div class="card-body">
               <h5 class="card-title">{{ c.title }}</h5>
