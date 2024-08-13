@@ -12,10 +12,12 @@ import { IListDictionary } from '../../Interfaces/dictionary'
 
 import { fadeAnimation } from '../../Animations/animations'
 
+import { SearchComponent } from './components/search/search.component'
+
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [CommonModule, RouterModule, RouterOutlet, BootstrapIconComponent],
+  imports: [CommonModule, RouterModule, RouterOutlet, BootstrapIconComponent, SearchComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
   animations: [fadeAnimation]
