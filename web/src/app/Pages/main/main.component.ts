@@ -28,20 +28,20 @@ export class MainComponent implements OnInit {
 
   links = [
     {
-      route: 'main/scales',
-      text: this.dictionary.titleScales
+      route: 'scales',
+      text: this.dictionary.titleScales.pt
     },
     {
-      route: 'main/posts',
-      text: this.dictionary.titlePosts
+      route: 'posts',
+      text: this.dictionary.titlePosts.pt
     },
     {
-      route: 'main/songs',
-      text: this.dictionary.titleSongs
+      route: 'musics',
+      text: this.dictionary.titleSongs.pt
     },
     {
-      route: 'main/messages',
-      text: this.dictionary.titleMessages
+      route: 'messages',
+      text: this.dictionary.titleMessages.pt
     }  
   ]
 
