@@ -2,14 +2,14 @@
   <div class="main d-flex align-items-centers">
     <form [formGroup]="loginForm" (ngSubmit)="login()">
       <div>
-        <label for="email">Email:</label>
+        <label for="email">{{ dictionary.titleEmail }}</label>
         <input type="email" formControlName="email">
       </div>
       <div>
-        <label for="password">Password:</label>
+        <label for="password">{{ dictionary.titlePassword }}</label>
         <input type="password" formControlName="password">
       </div>
-      <button type="submit" [disabled]="!loginForm.valid">Login</button>
+      <button type="submit" [disabled]="!loginForm.valid">{{ dictionary.titleLogin.pt }}</button>
     </form>
   </div>
 </div>

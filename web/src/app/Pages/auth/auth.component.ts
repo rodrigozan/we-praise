@@ -8,6 +8,7 @@ import { ILogin } from './interfaces/login.interface';
 import { AuthService } from './services/auth.service'; 
 import { ConfirmTokenService } from '../../Services/confirm-token/confirm-token.service';
 import { LevelUserService } from '../main/services/level-user/level-user.service';
+import { IListDictionary } from '../../Interfaces/dictionary';
 
 @Component({
   selector: 'app-auth',
@@ -17,6 +18,9 @@ import { LevelUserService } from '../main/services/level-user/level-user.service
   imports: [ReactiveFormsModule]
 })
 export class AuthComponent implements OnInit{
+
+  dictionary: IListDictionary = new IListDictionary()
+
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required])
