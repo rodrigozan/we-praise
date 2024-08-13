@@ -28,16 +28,18 @@
       <td>{{ song.author.name }}</td>
       <td>{{ song.observations }}</td>
       <td>
-        <button (click)="openModal('single', song)" class="btn btn-info">
-          <i class="bi bi-eye"></i> View
-        </button>
-        <button *ngIf="canEditOrDelete(song)" (click)="openModal('edit', song)" class="btn btn-warning">
-          <i class="bi bi-pencil"></i> Edit
-        </button>
-        <button *ngIf="canEditOrDelete(song)" (click)="openModal('delete', song)" class="btn btn-danger">
-          <i class="bi bi-trash"></i> Delete
-        </button>
-      </td>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <button (click)="openModal('single', song)" class="btn btn-info">
+            <i class="bi bi-eye"></i> {{dictionary.titleView.pt}}
+          </button>
+          <button *ngIf="canEditOrDelete(song)" (click)="openModal('edit', song)" class="btn btn-warning">
+            <i class="bi bi-pencil"></i> {{dictionary.titleEdit.pt}}
+          </button>
+          <button *ngIf="canEditOrDelete(song)" (click)="openModal('delete', song)" class="btn btn-danger">
+            <i class="bi bi-trash"></i> {{dictionary.titleToDelete.pt}}
+          </button>
+        </div>
+      </td>      
     </tr>
   </tbody>
 </table>

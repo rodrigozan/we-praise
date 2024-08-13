@@ -38,21 +38,17 @@
         <p *ngIf="scale.songs.length === 0">Nenhuma música disponível</p>
       </td>
       <td>
-        <ul>
-          <li>
-            <button (click)="openModal('single', scale)" class="btn btn-info">
-              <i class="bi bi-eye"></i> {{dictionary.titleView.pt}}
-            </button>
-          </li>
-          <li><button *ngIf="canEditOrDelete(scale)" (click)="openModal('edit', scale)" class="btn btn-warning">
-              <i class="bi bi-pencil"></i> {{dictionary.titleEdit.pt}}
-            </button></li>
-          <li>
-            <button *ngIf="canEditOrDelete(scale)" (click)="openModal('delete', scale)" class="btn btn-danger">
-              <i class="bi bi-trash"></i> {{dictionary.titleToDelete.pt}}
-            </button>
-          </li>
-        </ul>
+        <div class="d-grid gap-2 col-6 mx-auto">
+          <button (click)="openModal('single', scale)" class="btn btn-info">
+            <i class="bi bi-eye"></i> {{dictionary.titleView.pt}}
+          </button>
+          <button *ngIf="canEditOrDelete(scale)" (click)="openModal('edit', scale)" class="btn btn-warning">
+            <i class="bi bi-pencil"></i> {{dictionary.titleEdit.pt}}
+          </button>
+          <button *ngIf="canEditOrDelete(scale)" (click)="openModal('delete', scale)" class="btn btn-danger">
+            <i class="bi bi-trash"></i> {{dictionary.titleToDelete.pt}}
+          </button>
+        </div>
       </td>
     </tr>
   </tbody>
