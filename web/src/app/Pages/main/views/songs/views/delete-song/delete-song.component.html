@@ -1,15 +1,7 @@
-
-
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Deletar Música</h4>
-    <button type="button" class="close pull-right" aria-label="Close" (click)="hide()">
-      <span aria-hidden="true">&times;</span>
-    </button>
+<div class="modal-body">
+  <div>
+    <h2>Are you sure you want to delete {{ song?.title }}?</h2>
+    <button (click)="confirmDelete()">Delete</button>
+    <button (click)="close()">Cancel</button>
   </div>
-  <div class="modal-body">
-    <div>
-        <h2>Are you sure you want to delete {{ song?.title }}?</h2>
-        <button (click)="confirmDelete()">Delete</button>
-        <button (click)="close()">Cancel</button>
-      </div>
-  </div>
+</div>

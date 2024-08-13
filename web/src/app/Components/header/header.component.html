@@ -7,12 +7,12 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngFor="let c of menu_content">
+        <ul class="navbar-nav mb-2 mb-lg-0" *ngFor="let c of menu_content">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" (click)="goTo(c.route)">{{ c.title }}</a>
+            <a class="nav-link" (click)="goTo(c.route)">{{ c.title }}</a>
           </li>
         </ul>
-        <div ngbDropdown class="d-inline-block md-auto">
+        <div ngbDropdown class="ms-auto d-inline-block md-auto">
           <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
             <app-bootstrap-icon iconName="person-circle" iconTitle="{{dictionary.titleProfile.pt}}">
             </app-bootstrap-icon>

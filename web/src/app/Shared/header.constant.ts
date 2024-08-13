@@ -4,8 +4,8 @@ const dictionary: IListDictionary = new IListDictionary()
 
 export const MENU_CONTENT = [
   { title: dictionary.titleScales.pt, route: dictionary.titleScales.en },
-  { title: dictionary.titlePosts.pt, route: dictionary.titlePosts.en },
-  { title: dictionary.titleMessages.pt, route: dictionary.titleMessages.en },
+  //{ title: dictionary.titlePosts.pt, route: dictionary.titlePosts.en },
+  //{ title: dictionary.titleMessages.pt, route: dictionary.titleMessages.en },
   { title: dictionary.titleSongs.pt, route: dictionary.titleSongs.en }
 ];
 
