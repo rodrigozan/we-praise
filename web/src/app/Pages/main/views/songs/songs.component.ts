@@ -43,7 +43,7 @@ export class SongsComponent {
 
   async get() {
     try {
-      this.api.get(`songs`).subscribe((songs: ISong[]) => { console.log(songs);this.songs = songs })
+      this.api.get(`songs`).subscribe((songs: any[]) => { this.songs = songs })
     } catch (error) {
       throw new Error
     }

@@ -9,18 +9,19 @@ import { IScale, IPost, ISong, IMessage } from '../../interfaces/main'; // Impor
   providedIn: 'root'
 })
 export class SearchService {
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService) { }
 
   search(query: string): Observable<any[]> {
-    const scales$ = this.apiService.get<IScale[]>('scales').pipe(
+
+    const scales$ = this.apiService.search<IScale>('scales').pipe(
       map(scales => scales.filter(scale => this.searchInScale(scale, query)))
     );
 
-    const posts$ = this.apiService.get<IPost[]>('posts').pipe(
+    const posts$ = this.apiService.search<IPost>('posts').pipe(
       map(posts => posts.filter(post => this.searchInPost(post, query)))
     );
 
-    const songs$ = this.apiService.get<ISong[]>('songs').pipe(
+    const songs$ = this.apiService.search<ISong>('songs').pipe(
       map(songs => songs.filter(song => this.searchInSong(song, query)))
     );
 
@@ -31,17 +32,17 @@ export class SearchService {
 
   private searchInScale(scale: IScale, query: string): boolean {
     return this.searchInString(scale.title, query) ||
-           this.searchInArray(scale.songs.map(song => song.title), query);
+      this.searchInArray(scale.songs.map(song => song.title), query);
   }
 
   private searchInPost(post: IPost, query: string): boolean {
     return this.searchInString(post.title, query) ||
-           this.searchInArray(post.content.map(content => content.title + content.content), query);
+      this.searchInArray(post.content.map(content => content.title + content.content), query);
   }
 
   private searchInSong(song: ISong, query: string): boolean {
     return this.searchInString(song.title, query) ||
-           this.searchInArray(song.version.map(version => version.interpreter.join(' ')), query);
+      this.searchInArray(song.version.map(version => version.interpreter.join(' ')), query);
   }
 
   private searchInString(text: string, query: string): boolean {

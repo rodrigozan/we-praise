@@ -16,4 +16,9 @@ export class ApiService {
   get(route: string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiBase}/${route}`);
   }
+
+  search<T>(route: string): Observable<T[]> {
+    const url = `${this.apiBase}/${route}`;
+    return this.http.get<T[]>(url);
+  }
 }

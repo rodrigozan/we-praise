@@ -1,1 +1,9 @@
-<p>search works!</p>
+<div class="mb-5">
+  <input type="search" class="form-control" placeholder="{{dictionary.titleSearch.pt}}" aria-label="Search" [(ngModel)]="searchTerm"
+    (keyup)="search()" />
+  <ul *ngIf="searchResults.length > 0" class="list-group">
+    <li class="list-group-item" *ngFor="let result of searchResults">
+      {{ result.title }}
+    </li>
+  </ul>
+</div>
