@@ -2,9 +2,9 @@ import { Routes, CanActivate } from '@angular/router';
 
 import { MainComponent } from './Pages/main/main.component';
 import { AuthComponent } from './Pages/auth/auth.component';
+import { LogoutComponent } from './Pages/logout/logout.component';
+import { UsersComponent } from './Pages/users/users.component';
 import { NotFoundComponent } from './Pages/not-found/not-found.component';
-
-import { AuthService } from './Pages/auth/services/auth.service';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/main', pathMatch: 'full' },
@@ -43,5 +43,7 @@ export const routes: Routes = [
         ]
     },
     { path: 'login', component: AuthComponent },
+    { path: 'logout', component: LogoutComponent },
+    { path: 'user/profile', component: UsersComponent },
     { path: '**', component: NotFoundComponent }
 ];
