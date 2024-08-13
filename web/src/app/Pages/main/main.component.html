@@ -1,5 +1,6 @@
 <div class="main container-fluid">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary mb-5">
+  <app-header></app-header>
+  <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary mb-5">
     <div class="container">
       <a class="navbar-brand" href="#" (click)="goTo('')">{{ dictionary.titleAPP }}</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -12,13 +13,33 @@
             <a class="nav-link active" aria-current="page" (click)="goTo(c.route)">{{ c.title }}</a>
           </li>
         </ul>
-        <a class="nav-link ms-4" (click)="logout()">
-          <button type="button" class="btn btn-outline-danger">{{ dictionary.btnLogout.pt }} <app-bootstrap-icon
-              iconName="box-arrow-right" iconTitle="{{dictionary.btnLogout.pt}}"></app-bootstrap-icon></button>
-        </a>
+        <div ngbDropdown class="d-inline-block md-auto">
+          <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+            <app-bootstrap-icon iconName="person-circle" iconTitle="{{dictionary.titleProfile.pt}}">
+            </app-bootstrap-icon>
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <div class="d-grid gap-2">
+              <button ngbDropdownItem type="button" class="btn btn-outline-success">
+                <a class="dropdown-item" (click)="goTo('user/profile')">
+                  {{ dictionary.titleProfile.pt }}
+                  <app-bootstrap-icon iconName="person-circle" iconTitle="{{dictionary.titleProfile.pt}}">
+                  </app-bootstrap-icon>
+                </a>
+              </button>
+              <button ngbDropdownItem type="button" class="btn btn-outline-danger">
+                <a class="dropdown-item" (click)="logout()">
+                  {{ dictionary.btnLogout.pt }}
+                  <app-bootstrap-icon iconName="box-arrow-right" iconTitle="{{dictionary.btnLogout.pt}}">
+                  </app-bootstrap-icon>
+                </a>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </nav>
+  </nav> -->
   <main class="container">
     <app-search-component class="search"></app-search-component>
     <div *ngIf="!itsMan">
