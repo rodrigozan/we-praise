@@ -14,7 +14,7 @@ export class AuthService {
   static async findUserByEmail(email: string): Promise<IUser  | null> {
     try {    
 
-      return await UserModel.findOne({ email: email }, `email password role`);
+      return await UserModel.findOne({ email: email }, `id email password role`);
       
     } catch (error) {
       throw new Error(`User not found in AuthService: ${error}`);

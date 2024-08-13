@@ -121,7 +121,9 @@ router.get('/users', userController.get);
  *       404:
  *         description: Usuário não encontrado
  */
-router.get('/users/:id', userController.getOne);
+router.get('/users/:id', userController.getById);
+
+router.get('/users/:email', userController.getOne);
 
 /**
  * @openapi

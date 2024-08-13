@@ -37,9 +37,9 @@ export class UserService {
         }        
     }
 
-    static async findOne(id: Types.ObjectId) {
+    static async findOne(email: string) {
         try {
-            return await UserModel.findOne({id: id})
+            return await UserModel.findOne({email: email}, `email`)
         } catch (error){
             return error.message
         }        

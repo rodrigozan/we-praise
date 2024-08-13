@@ -28,10 +28,24 @@ class UserController {
         }
     }
 
-    public async getOne(req: Request, res: Response) {
+    public async getById(req: Request, res: Response) {
         try {
             const objectId = new Types.ObjectId(req.params.id)
             const user = await service.findUserById(objectId, '');
+            if (!user) {
+                return res.status(404).send('User not found');
+            }
+            console.log('User request:',user)
+            return res.status(200).send(user);
+        } catch (error) {
+            return res.status(500).send(error);
+        }
+    }
+
+    public async getOne(req: Request, res: Response) {
+        try {
+            const email = req.body.email
+            const user = await service.findOne(email);
             if (!user) {
                 return res.status(404).send('User not found');
             }

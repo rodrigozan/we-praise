@@ -29,8 +29,9 @@ class AuthController {
 
       const token = service.generateToken(user);
       const role = user.role
+      const id = user.id
 
-      return res.status(200).json({ token, role });
+      return res.status(200).json({ token, role, id });
     } catch (error) {
       return res.status(400).json({ message: `Login error: ${error.message}` });
     }

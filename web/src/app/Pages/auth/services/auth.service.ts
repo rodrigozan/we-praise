@@ -24,6 +24,7 @@ export class AuthService {
         map(response => {
           this.storageService.set('token', response.token);
           this.storageService.set('role', response.role);
+          this.storageService.set('id', response.id);
           return response;
         }),
         catchError(error => {
