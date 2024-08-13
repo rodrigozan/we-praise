@@ -35,9 +35,23 @@ export class IListDictionary {
     titleForm = 'Formulário'
     titleToView = 'Visualizar'
     titleToInsert = 'Inserir'
-    titleToDelete = 'Excluir'
-    titleToUpdate = 'Atualizar'
-    titleEdit = 'Editar'
+    titleToDelete = {
+        pt: 'Deletar',
+        en: 'Delete'
+    }
+    titleToUpdate = {
+        pt: 'Atualizar',
+        en: 'Update'
+    }
+    titleView = {
+        pt: 'Visualizar',
+        en: 'View'
+    }
+
+    titleEdit = {
+        pt: 'Editar',
+        en: 'Edit'
+    }
     titleDuplicate = 'Duplicar'
     titleRefuse = 'Recusar'
     titleApprove = 'Aprovar'
@@ -159,7 +173,6 @@ export class IListDictionary {
         pt: 'Pesquisar',
         en: 'Search'
     }
-
 
     /* Routes */
     routeMain = 'main'
