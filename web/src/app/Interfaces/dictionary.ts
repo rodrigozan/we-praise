@@ -155,6 +155,11 @@ export class IListDictionary {
         en: 'Audio Tech'
     }
 
+    titleSearch = {
+        pt: 'Pesquisar',
+        en: 'Search'
+    }
+
 
     /* Routes */
     routeMain = 'main'
