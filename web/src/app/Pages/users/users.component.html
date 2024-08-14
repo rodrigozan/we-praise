@@ -1,20 +1,38 @@
 <div class="main container-fluid">
   <app-header></app-header>
   <main class="container">
-   <div>User Page Component</div>
-   <div>{{ dictionary.titleWelcome }} {{ user.name }}</div>
-   <div class="card mt-4" style="width: 25rem;">
-    <div class="card-body">
-      <h5 class="card-title">Dados básicos</h5>
-      <p class="card-text">
-        Email: {{user.email}}<br />
-        Celular: {{user.celular}}<br />
-      </p>
-      <ul *ngFor="let instrument of user.insstruments">
-        <li>{{ instrument }}</li>
-      </ul>
-      <a href="#" class="btn btn-primary">{{dictionary.titleEdit.pt}}</a>
+    <div>User Page Component</div>
+    <div>{{ dictionary.titleWelcome }} {{ user?.name }}</div>
+    <div class="card mt-4" style="width: 25rem;">
+      <div class="card-body">
+        <h5 class="card-title">Dados básicos</h5>
+        <p class="card-text">
+          Email: {{user?.email}}<br />
+          Celular: {{user?.celular}}<br />
+        </p>
+        <p class="card-text">Instrumentos:</p>
+        <div class="list-group" *ngFor="let instrument of user?.instruments">
+          <a href="#" class="list-group-item list-group-item-action mb-2">{{ instrument }}</a>
+        </div>
+        <div class="d-grid gap-2">
+          <a href="#" class="btn btn-primary">{{dictionary.titleEdit.pt}}</a>
+        </div>
+      </div>
     </div>
-  </div>
+    <div class="card mt-4" style="width: 25rem;">
+      <div class="card-body">
+        <h5 class="card-title">Privacidade
+          <app-bootstrap-icon (click)="showPass()" [iconName]="showPasswordIcon" iconTitle="">
+          </app-bootstrap-icon>
+        </h5>
+        <p class="card-text" *ngIf="itsTrue">
+          Senha: <input class="{{blur}}" disabled placeholder="{{user?.password.substring(0, 5)}}..." />
+        </p>
+        <app-change-password [hashedPassword]="user?.password" [itsDisabled]="itsTrue" *ngIf="!itsTrue" (cancel)="onCancelChangePassword()"></app-change-password>
+        <div class="d-grid gap-2">
+           <a href="#" class="btn btn-primary" *ngIf="itsTrue" (click)="itsTrue = !itsTrue">Alterar Senha</a>
+        </div>
+      </div>
+    </div>
   </main>
 </div>

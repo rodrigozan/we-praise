@@ -38,6 +38,6 @@ const changePassCtrl = ChangePasswordController
  *       404:
  *         description: User not found
  */
-router.post('/change-password/:id', changePassCtrl.change)
+router.put('/change-password/:id', changePassCtrl.change)
 
 export default router;

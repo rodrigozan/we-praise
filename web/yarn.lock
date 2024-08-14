@@ -1650,6 +1650,28 @@
   resolved "https://registry.yarnpkg.com/@lmdb/lmdb-win32-x64/-/lmdb-win32-x64-3.0.12.tgz#0e06dc23dfe23c4a9d0a9cbcce1b0af74c8884a0"
   integrity sha512-CO3MFV8gUx16NU/CyyuumAKblESwvoGVA2XhQKZ976OTOxaTbb8F8D3f0iiZ4MYqsN74jIrFuCmXpPnpjbhfOQ==
 
+"@maskito/angular@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@maskito/angular/-/angular-3.0.0.tgz#c59a973069d25460800c3c0f10f8412166f57cb6"
+  integrity sha512-OqVWCItRhSzbHBfEh79Rg5eHEru6b5p7xzUlZ19JY93Wo/4xhA+d4G8P0j+QJIDl+TIuD+BbB0h6DHtS41GzUw==
+  dependencies:
+    tslib "2.6.3"
+
+"@maskito/core@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@maskito/core/-/core-3.0.0.tgz#13d01167198e7f9d630f82bda68a4bc984533e9f"
+  integrity sha512-g7zeYPMlpMczrq4Huf+Bpdm3Emy/GO0NUXXnQnUiCjlAoKQl+86cLyP5Hbf4HGcNl/J9SoEGEA4uoW6uUc/yLw==
+
+"@maskito/kit@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@maskito/kit/-/kit-3.0.0.tgz#3ba604366e0807fa555c23f8273938425f497c2e"
+  integrity sha512-aXRlDBjeNox/+D7hbXtnM9INGml1QUIXhrnScrCsbqgg7550mt/ivh4PrxL7oazq/BH7HhvS4olJCF5TPEti1g==
+
+"@maskito/phone@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@maskito/phone/-/phone-3.0.0.tgz#02a8e4d26362f8533521c37b32776b5467bebcd9"
+  integrity sha512-v5ky83geF2PReW8h6MfkeT1Zx02iUlib/KJdmdS2ojMeawbnVqKdNKffL+JNlZJdZtglLR8eCxnGLjp+E75TIQ==
+
 "@msgpackr-extract/msgpackr-extract-darwin-arm64@3.0.3":
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/@msgpackr-extract/msgpackr-extract-darwin-arm64/-/msgpackr-extract-darwin-arm64-3.0.3.tgz#9edec61b22c3082018a79f6d1c30289ddf3d9d11"
@@ -2043,6 +2065,11 @@
   dependencies:
     "@tufjs/canonical-json" "2.0.0"
     minimatch "^9.0.4"
+
+"@types/bcryptjs@^2.4.6":
+  version "2.4.6"
+  resolved "https://registry.yarnpkg.com/@types/bcryptjs/-/bcryptjs-2.4.6.tgz#2b92e3c2121c66eba3901e64faf8bb922ec291fa"
+  integrity sha512-9xlo6R2qDs5uixm0bcIqCeMCE6HiQsIyel9KQySStiyqNl2tnj2mP3DX1Nf56MD6KMenNNlBBsy3LJ7gUEQPXQ==
 
 "@types/body-parser@*":
   version "1.19.5"
@@ -2615,6 +2642,11 @@ batch@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/batch/-/batch-0.6.1.tgz#dc34314f4e679318093fc760272525f94bf25c16"
   integrity sha512-x+VAiMRL6UPkx+kudNvxTl6hB2XNNCG2r+7wixVfIYwu/2HKRXimwQyaumLjMveWvT2Hkd/cAJw+QBMfJ/EKVw==
+
+bcryptjs@^2.4.3:
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/bcryptjs/-/bcryptjs-2.4.3.tgz#9ab5627b93e60621ff7cdac5da9733027df1d0cb"
+  integrity sha512-V/Hy/X9Vt7f3BbPJEi8BdVFMByHi+jNXrYkW3huaybV/kQ0KJg0Y6PkEMbn+zeT+i+SiKZ/HMqJGIIt4LZDqNQ==
 
 big.js@^5.2.2:
   version "5.2.2"
@@ -4495,6 +4527,11 @@ less@4.2.0:
     mime "^1.4.1"
     needle "^3.1.0"
     source-map "~0.6.0"
+
+libphonenumber-js@^1.11.5:
+  version "1.11.5"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.11.5.tgz#50a441da5ff9ed9a322d796a14f1e9cbc0fdabdf"
+  integrity sha512-TwHR5BZxGRODtAfz03szucAkjT5OArXr+94SMtAM2pYXIlQNVMrxvb6uSCbnaJJV6QXEyICk7+l6QPgn72WHhg==
 
 license-webpack-plugin@4.0.2:
   version "4.0.2"

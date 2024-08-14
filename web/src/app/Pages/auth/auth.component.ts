@@ -5,7 +5,7 @@ import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angula
 
 import { ILogin } from './interfaces/login.interface';
 
-import { AuthService } from './services/auth.service'; 
+import { AuthService } from './services/auth/auth.service'; 
 import { ConfirmTokenService } from '../../Services/confirm-token/confirm-token.service';
 import { LevelUserService } from '../main/services/level-user/level-user.service';
 import { IListDictionary } from '../../Interfaces/dictionary';

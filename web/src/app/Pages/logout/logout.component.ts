@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AuthService } from '../../Pages/auth/services/auth.service'
+import { AuthService } from '../auth/services/auth/auth.service'
 
 import { IListDictionary } from '../../Interfaces/dictionary';
 

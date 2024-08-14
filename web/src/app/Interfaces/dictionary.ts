@@ -12,6 +12,7 @@ export class IListDictionary {
     titleName = 'Nome'
     titleEmail = 'Email'
     titlePassword = 'Senha'
+    titleConfirmPassword = 'Confirme a Senha'
     titleCPF = 'CPF'
     titleZipCode = 'CEP'
     titleAddress = 'Endereço'

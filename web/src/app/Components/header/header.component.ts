@@ -9,7 +9,7 @@ import { BootstrapIconComponent } from '../../Components/bootstrap-icon/bootstra
 import { IListDictionary } from '../../Interfaces/dictionary'
 
 import { MENU_CONTENT, MENU_PROFILE } from '../../Shared/header.constant'
-import { AuthService } from '../../Pages/auth/services/auth.service';
+import { AuthService } from '../../Pages/auth/services/auth/auth.service';
 
 @Component({
   selector: 'app-header',

@@ -9,7 +9,7 @@ import { BootstrapIconComponent } from '../../Components/bootstrap-icon/bootstra
 import { SearchComponent } from './components/search/search.component'
 
 import { ConfirmTokenService } from '../../Services/confirm-token/confirm-token.service'
-import { AuthService } from '../auth/services/auth.service'
+import { AuthService } from '../auth/services/auth/auth.service'
 import { LevelUserService } from './services/level-user/level-user.service'
 
 import { IListDictionary } from '../../Interfaces/dictionary'

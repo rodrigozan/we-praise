@@ -13,8 +13,8 @@ export class ApiService {
 
   constructor(private http: HttpClient) {}
 
-  get(route: string): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiBase}/${route}`);
+  get<T>(route: string): Observable<T[]> {
+    return this.http.get<T[]>(`${this.apiBase}/${route}`);
   }
 
   search<T>(route: string): Observable<T[]> {
